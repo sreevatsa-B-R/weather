@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Setup Weather App Structure",
+        "type": "shell",
+        "command": "mkdir backend\\routes backend\\controllers frontend\\src && echo. > backend\\app.js && echo. > backend\\.env && echo. > frontend\\vite.config.js && echo. > frontend\\src\\App.jsx && echo. > frontend\\src\\index.jsx",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "This task creates the folder structure and necessary files for the Weather App."
+      }
+    ]
+  }
+  
