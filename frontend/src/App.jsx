@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './App.css'; 
+// Assuming you have some CSS for styling
+import AnalogClock from './AnalogClock';
 function App() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
@@ -22,20 +24,27 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Weather App</h1>
+       <AnalogClock />
+      <h1 className='title'>Weather App</h1>
       <input
         type="text"
+        className='input'
         placeholder="Enter city"
         value={city}
         onChange={(e) => setCity(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            getWeather();
+          }
+        }}
       />
-      <button onClick={getWeather}>Get Weather</button>
+      {/* <button onClick={getWeather}>Get Weather</button> */}
 
       {loading && <p>Loading...</p>}
 
       {weather && (
         <div>
-          <h3>{weather.name}</h3>
+          {/* <h3>{weather.name}</h3> */}
           <p>{weather.weather[0].description}</p>
           <p>Temperature: {Math.round(weather.main.temp - 273.15)}°C</p>
         </div>
